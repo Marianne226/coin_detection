@@ -21,6 +21,15 @@ The pipeline consists of four main stages:
 3. **Coin Classification** - Use a fine-tuned ResNet-50 model to identify coin denominations
 4. **Output Generation** - Export predictions in CSV format for evaluation
 
+### Background Types
+
+The system automatically detects and handles three distinct background scenarios:
+
+| Neutral Background | Hand-Held Background | Noisy Background |
+|:------------------:|:--------------------:|:----------------:|
+| ![Neutral](Report-IMG/Neutral_Background.png) | ![Hand](Report-IMG/Hand_Background.png) | ![Noisy](Report-IMG/Noisy_Backgournd.png) |
+| Clean, uniform white background | Coins held in a human hand | Cluttered, textured background |
+
 ### Supported Coins
 
 | Swiss Franc (CHF) | Euro (EUR) |
@@ -183,12 +192,28 @@ Each background type has a specialized pre-processing algorithm:
 
 All images are resized by a factor of 0.6 for computational efficiency.
 
+**Pre-processing Results:**
+
+The goal of pre-processing is to isolate coins as distinct circular shapes:
+
+| Neutral | Hand | Noisy |
+|:-------:|:----:|:-----:|
+| ![Neutral Pre-processed](Report-IMG/pre_proccesed_image_neutral.png) | ![Hand Pre-processed](Report-IMG/pre%20processed%20image%20hand.png) | ![Noisy Pre-processed](Report-IMG/pre%20processed%20image%20noisy.png) |
+
 ### Classification Model
 
 - **Architecture**: ResNet-50 (pre-trained on ImageNet)
 - **Fine-tuning**: Final classification layer replaced for 23 coin classes
 - **Input size**: 224 × 224 pixels
 - **Normalization**: ImageNet mean/std ([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+
+### Data Augmentation
+
+To improve model robustness, various data augmentation techniques are applied during training:
+
+| Original | Rotation | Flip | Brightness | Contrast |
+|:--------:|:--------:|:----:|:----------:|:--------:|
+| ![Original](Report-IMG/sample2eur.png) | ![Rotation](Report-IMG/random_rotation.png) | ![Flip](Report-IMG/random_flip.png) | ![Brightness](Report-IMG/bright12_2eur.png) | ![Contrast](Report-IMG/contrast13_2eur.png) |
 
 ---
 
