@@ -2,8 +2,6 @@
 
 A computer vision project for detecting and classifying Swiss Franc (CHF) and Euro (EUR) coins from images with varying backgrounds.
 
-**IAPR Project 2024 - Group 29**
-
 ## Project Overview
 
 ### Objectives
@@ -214,14 +212,6 @@ To improve model robustness, various data augmentation techniques are applied du
 | Original | Rotation | Flip | Brightness | Contrast |
 |:--------:|:--------:|:----:|:----------:|:--------:|
 | ![Original](Report-IMG/sample2eur.png) | ![Rotation](Report-IMG/random_rotation.png) | ![Flip](Report-IMG/random_flip.png) | ![Brightness](Report-IMG/bright12_2eur.png) | ![Contrast](Report-IMG/contrast13_2eur.png) |
-
----
-
-## Authors
-
-- Paul Richard (SCIPER: 325336)
-- Kenji Tetard (SCIPER: 301569)
-- Marianne Civit Ardevol (SCIPER: 325056)
 
 ---
 
